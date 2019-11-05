@@ -1,71 +1,56 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
+var _interopRequireDefault = require("@babel/runtime-corejs2/helpers/interopRequireDefault");
+
+var _Object$defineProperty = require("@babel/runtime-corejs2/core-js/object/define-property");
+
+_Object$defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _regenerator = require("babel-runtime/regenerator");
+exports["default"] = void 0;
 
-var _regenerator2 = _interopRequireDefault(_regenerator);
+var _regenerator = _interopRequireDefault(require("@babel/runtime-corejs2/regenerator"));
 
-var _promise = require("babel-runtime/core-js/promise");
+var _promise = _interopRequireDefault(require("@babel/runtime-corejs2/core-js/promise"));
 
-var _promise2 = _interopRequireDefault(_promise);
+var _path = _interopRequireDefault(require("path"));
 
-var _asyncToGenerator2 = require("babel-runtime/helpers/asyncToGenerator");
+var _fs = _interopRequireDefault(require("fs"));
 
-var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
+var _resolveMigrationsDirPath = _interopRequireDefault(require("./resolveMigrationsDirPath"));
 
-var _path = require("path");
-
-var _path2 = _interopRequireDefault(_path);
-
-var _fs = require("fs");
-
-var _fs2 = _interopRequireDefault(_fs);
-
-var _resolveMigrationsDirPath = require("./resolveMigrationsDirPath");
-
-var _resolveMigrationsDirPath2 = _interopRequireDefault(_resolveMigrationsDirPath);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var getFileNames = function () {
-  var _ref = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee(migrationsDirPath) {
-    var migrationsDir, files;
-    return _regenerator2.default.wrap(function _callee$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            migrationsDir = (0, _resolveMigrationsDirPath2.default)(migrationsDirPath);
-            _context.next = 3;
-            return new _promise2.default(function (resolve, reject) {
-              return _fs2.default.readdir(migrationsDir, function (err, fileList) {
-                if (!err) {
-                  resolve(fileList);
-                } else {
-                  reject(err);
-                }
-              });
+var getFileNames = function getFileNames(migrationsDirPath) {
+  var migrationsDir, files;
+  return _regenerator["default"].async(function getFileNames$(_context) {
+    while (1) {
+      switch (_context.prev = _context.next) {
+        case 0:
+          migrationsDir = (0, _resolveMigrationsDirPath["default"])(migrationsDirPath);
+          _context.next = 3;
+          return _regenerator["default"].awrap(new _promise["default"](function (resolve, reject) {
+            return _fs["default"].readdir(migrationsDir, function (err, fileList) {
+              if (!err) {
+                resolve(fileList);
+              } else {
+                reject(err);
+              }
             });
+          }));
 
-          case 3:
-            files = _context.sent;
-            return _context.abrupt("return", files.filter(function (file) {
-              return _path2.default.extname(file) === ".js";
-            }));
+        case 3:
+          files = _context.sent;
+          return _context.abrupt("return", files.filter(function (file) {
+            return _path["default"].extname(file) === ".js";
+          }));
 
-          case 5:
-          case "end":
-            return _context.stop();
-        }
+        case 5:
+        case "end":
+          return _context.stop();
       }
-    }, _callee, undefined);
-  }));
+    }
+  });
+};
 
-  return function getFileNames(_x) {
-    return _ref.apply(this, arguments);
-  };
-}();
-
-exports.default = getFileNames;
+var _default = getFileNames;
+exports["default"] = _default;

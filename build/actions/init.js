@@ -1,19 +1,15 @@
 "use strict";
 
-var _regenerator = require("babel-runtime/regenerator");
+var _interopRequireDefault = require("@babel/runtime-corejs2/helpers/interopRequireDefault");
 
-var _regenerator2 = _interopRequireDefault(_regenerator);
-
-var _asyncToGenerator2 = require("babel-runtime/helpers/asyncToGenerator");
-
-var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _regenerator = _interopRequireDefault(require("@babel/runtime-corejs2/regenerator"));
 
 var fs = require("fs-extra");
+
 var path = require("path");
 
 var migrationsDir = require("../env/migrationsDir");
+
 var configFile = require("../env/configFile");
 
 function copySampleConfigFile() {
@@ -26,21 +22,21 @@ function createMigrationsDirectory() {
   return fs.mkdirs(path.join(process.cwd(), "migrations"));
 }
 
-module.exports = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee() {
-  return _regenerator2.default.wrap(function _callee$(_context) {
+module.exports = function _callee() {
+  return _regenerator["default"].async(function _callee$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
           _context.next = 2;
-          return migrationsDir.shouldNotExist();
+          return _regenerator["default"].awrap(migrationsDir.shouldNotExist());
 
         case 2:
           _context.next = 4;
-          return configFile.shouldNotExist();
+          return _regenerator["default"].awrap(configFile.shouldNotExist());
 
         case 4:
           _context.next = 6;
-          return copySampleConfigFile();
+          return _regenerator["default"].awrap(copySampleConfigFile());
 
         case 6:
           return _context.abrupt("return", createMigrationsDirectory());
@@ -50,5 +46,5 @@ module.exports = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.def
           return _context.stop();
       }
     }
-  }, _callee, undefined);
-}));
+  });
+};

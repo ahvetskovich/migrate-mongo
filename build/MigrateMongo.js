@@ -1,38 +1,25 @@
 "use strict";
 
-var _classCallCheck2 = require("babel-runtime/helpers/classCallCheck");
+var _interopRequireDefault = require("@babel/runtime-corejs2/helpers/interopRequireDefault");
 
-var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime-corejs2/helpers/classCallCheck"));
 
-var _up = require("./instance_methods/up");
+var _up = _interopRequireDefault(require("./instance_methods/up"));
 
-var _up2 = _interopRequireDefault(_up);
+var _down = _interopRequireDefault(require("./instance_methods/down"));
 
-var _down = require("./instance_methods/down");
+var _status = _interopRequireDefault(require("./instance_methods/status"));
 
-var _down2 = _interopRequireDefault(_down);
-
-var _status = require("./instance_methods/status");
-
-var _status2 = _interopRequireDefault(_status);
-
-var _database = require("./instance_methods/database");
-
-var _database2 = _interopRequireDefault(_database);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _database = _interopRequireDefault(require("./instance_methods/database"));
 
 var MigrateMongo = function MigrateMongo(config) {
-  (0, _classCallCheck3.default)(this, MigrateMongo);
-
+  (0, _classCallCheck2["default"])(this, MigrateMongo);
   this.config = config;
-
-  var statusWithConfig = (0, _status2.default)(config);
-
-  this.up = (0, _up2.default)(config, statusWithConfig);
-  this.down = (0, _down2.default)(config, statusWithConfig);
+  var statusWithConfig = (0, _status["default"])(config);
+  this.up = (0, _up["default"])(config, statusWithConfig);
+  this.down = (0, _down["default"])(config, statusWithConfig);
   this.status = statusWithConfig;
-  this.database = (0, _database2.default)(config);
+  this.database = (0, _database["default"])(config);
 };
 
 module.exports = MigrateMongo;

@@ -1,27 +1,29 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
+var _interopRequireDefault = require("@babel/runtime-corejs2/helpers/interopRequireDefault");
+
+var _Object$defineProperty = require("@babel/runtime-corejs2/core-js/object/define-property");
+
+_Object$defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _path = require("path");
+exports["default"] = void 0;
 
-var _path2 = _interopRequireDefault(_path);
+var _path = _interopRequireDefault(require("path"));
 
-var _resolveMigrationsDirPath = require("./resolveMigrationsDirPath");
-
-var _resolveMigrationsDirPath2 = _interopRequireDefault(_resolveMigrationsDirPath);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _resolveMigrationsDirPath = _interopRequireDefault(require("./resolveMigrationsDirPath"));
 
 var loadMigration = function loadMigration(migrationsDirPath, fileName) {
   if (!migrationsDirPath) {
     throw new Error("No migrations path found");
   }
 
-  var filePath = _path2.default.join((0, _resolveMigrationsDirPath2.default)(migrationsDirPath), fileName);
+  var filePath = _path["default"].join((0, _resolveMigrationsDirPath["default"])(migrationsDirPath), fileName); // eslint-disable-next-line
+
 
   return require(filePath);
 };
 
-exports.default = loadMigration;
+var _default = loadMigration;
+exports["default"] = _default;

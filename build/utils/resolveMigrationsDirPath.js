@@ -1,17 +1,20 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
+var _interopRequireDefault = require("@babel/runtime-corejs2/helpers/interopRequireDefault");
+
+var _Object$defineProperty = require("@babel/runtime-corejs2/core-js/object/define-property");
+
+_Object$defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _path = require("path");
+exports["default"] = void 0;
 
-var _path2 = _interopRequireDefault(_path);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _path = _interopRequireDefault(require("path"));
 
 var resolveMigrationsDirPath = function resolveMigrationsDirPath(migrationDir) {
-  return _path2.default.isAbsolute(migrationDir) ? migrationDir : _path2.default.join(process.cwd(), migrationDir);
+  return _path["default"].isAbsolute(migrationDir) ? migrationDir : _path["default"].join(process.cwd(), migrationDir);
 };
 
-exports.default = resolveMigrationsDirPath;
+var _default = resolveMigrationsDirPath;
+exports["default"] = _default;
